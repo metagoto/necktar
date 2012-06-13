@@ -1,0 +1,8 @@
+build.sh
+*.out
+*.o
+callgrind.out.*
+necktar.config
+necktar.creator*
+necktar.files
+necktar.includes
