@@ -11,9 +11,10 @@ namespace necktar
     {
         tone_vec_t t(12, 0);
         for (auto v : s) {
+            v %= 12;
             if (v < 0)
                 v += 12;
-            t[v%12] = 1;
+            t[v] = 1;
         }
         return t;
     }

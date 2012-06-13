@@ -7,7 +7,7 @@ namespace necktar { namespace cli
 {
 
     // pure shit for now
-    void display(fretboard const& board, pos_seq_seq_t const& s)
+    inline void display(fretboard const& board, pos_seq_seq_t const& s)
     {
 
         auto& o = std::cout;
