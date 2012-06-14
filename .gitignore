@@ -1,4 +1,5 @@
 build.sh
+build_*.sh
 *.out
 *.o
 callgrind.out.*

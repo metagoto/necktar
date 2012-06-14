@@ -9,42 +9,31 @@ CFLAGSX+=-Wall -O3 -s -fpic -std=c++11 -Wno-strict-aliasing -Wextra -Werror -ped
 CFLAGSX+=-Wno-unused-parameter
 
 CFLAGSX+=-I include
+CFLAGSX+=-I 3rdparty
 
 LDFLAGSX+=-lstdc++ -lpthread -O3 -s
 
-
-#PYSRC = $(wildcard test/meta/gen*.py)
 
 SRCS = $(wildcard test/*.cpp)
 
 PROGS = $(patsubst %.cpp,%.out,$(SRCS))
 
 
-
-all: $(PROGS)
-#demo
+all: $(PROGS) demo
 
 %.out: %.cpp
 	$(CC) $(LDFLAGSX) $(CFLAGSX) $(GTEST_LIB)/gtest_main.a -o $@ $<
 
-
-#autogen: $(PYSRC)
-#	@cd test/meta; \
-#	python $(notdir $<); \
-#	cd ../..; \
-
-
-#autogen all
 test: all
 	@for p in $(PROGS); do \
 	  echo "running $$p"; \
 	  ./$$p  --gtest_color=yes; \
 	done;
 
-#demo: demo/demo.out
+demo: demo/demo.out
 
-#demo/demo.out: demo/demo.cpp
-#	$(CC) $(LDFLAGSX) $(CFLAGSX) -o $@ $<
+demo/demo.out: demo/demo.cpp
+	$(CC) $(LDFLAGSX) $(CFLAGSX) -o $@ $<
 
 clean:
 	rm -f test/*.o $(PROGS) demo/*.out

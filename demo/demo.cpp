@@ -1,23 +1,3 @@
-necktar
-=======
-
-Guitar neck hack. Or just a pretext for using c++11 user-defined literals. Initialy.
-
-``` c++
-// natural minor scale
-{1,2,3_b,4,5,6_b,7_b}
-
-// lydian dominant scale
-{1,2,3,4_s,5,6,7_b}
-
-// dominant seventh chord
-{1,3,5,7_b}
-
-```
-
-The (cli) professor.
-
-``` c++
 #include <necktar/necktar.hpp>
 #include <necktar/cli/cli.hpp>
 
@@ -53,13 +33,10 @@ int main()
     // what about the natural minor in the key of E
     prof.show({note::E, {1,2,3_b,4,5,6_b,7_b}});
 
-    // hey prof we should stack layers and see the common notes
-    // for my solo over that chords progression.
+    // hey prof we should stack layers and see
+    // the common notes for my solo over that progression.
     // dude.. it's gonna be another time
 
     cli::anykey();
     cli::cls();
 }
-```
-
-![minor scale](https://github.com/metagoto/necktar/raw/master/img/necktar1.png)
