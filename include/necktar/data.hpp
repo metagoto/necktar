@@ -184,8 +184,11 @@ namespace necktar
         constexpr int INTVDELTA = 0xff;
 
         constexpr semitone_t interval[] =
-        //x  1  2  3  4  5  6  7
-        { 0, 0, 2, 4, 5, 7, 9, 11};
+            //x  1  2  3  4  5  6  7
+            { 0, 0, 2, 4, 5, 7, 9, 11};
+
+        constexpr unsigned int dots[] =
+            {3,5,7,9,12,15,17,19,21,24,27,29,31};
     }
 
 }

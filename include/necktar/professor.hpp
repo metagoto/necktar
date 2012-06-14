@@ -104,8 +104,10 @@ namespace necktar
         {
             luthier_.draw(board_);
             auto const& m = pack_distribute(board_, layer);
-            for (pos_t i = 0; i < m.size(); ++i) {
-                for (pos_t j = 0; j < m[i].size(); ++j) {
+            for (pos_t i = 0; i < m.size(); ++i)
+            {
+                for (pos_t j = 0; j < m[i].size(); ++j)
+                {
                     auto const& z = m[i][j];
                     luthier_.draw_note(m.size()-i-1, std::get<0>(z)
                                        //,note_str(std::get<1>(z)));
