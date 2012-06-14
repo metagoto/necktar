@@ -30,7 +30,7 @@ namespace necktar
     }
 
 
-    // {1, 3_b, 5 , 7_b} -> semitone seq {0,3,7,10}
+    // {1, 3_b, 5, 7_b} -> semitone seq {0,3,7,10}
     inline semitone_seq_t normalize(interval_seq_t const& s)
     {
         // already normalized items are +0xff+-12

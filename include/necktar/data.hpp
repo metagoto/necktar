@@ -1,5 +1,6 @@
 #pragma once
 
+#include <tuple>
 #include <vector>
 #include <unordered_map>
 
@@ -26,6 +27,9 @@ namespace necktar
     enum note : note_base_t;
     typedef std::vector<note> note_seq_t;
 
+    typedef std::tuple<pos_t, note, semitone_t> pack_t;
+    typedef std::vector<pack_t> pack_seq_t;
+    typedef std::vector<pack_seq_t> pack_seq_seq_t;
 
     enum note : note_base_t
     {
@@ -118,6 +122,60 @@ namespace necktar
         };
 
         return m.at(s); // may throw...
+    }
+
+
+    inline char const* note_str(note n, bool sharp = false)
+    {
+        static char const* NAFN = "";
+        static char const* m[] =
+        {
+            "C"
+           ,"Db"
+           ,"D"
+           ,"Eb"
+           ,"E"
+           ,"F"
+           ,"Gb"
+           ,"G"
+           ,"Ab"
+           ,"A"
+           ,"Bb"
+           ,"B"
+        };
+
+        // sharp...
+
+        if (n == note::NAFN)
+            return NAFN;
+        return m[n];
+    }
+
+
+    inline char const* interval_str(semitone_t n/*, bool sharp = false*/)
+    {
+        static char const* NAFN = "";
+        static char const* m[] =
+        {
+            "1"
+           ,"b2"
+           ,"2"
+           ,"b3"
+           ,"3"
+           ,"4"
+           ,"b5"
+           ,"5"
+           ,"b6"
+           ,"6"
+           ,"b7"
+           ,"7"
+        };
+
+        // more intervals...
+
+        if (n <0 || n > 11)
+            return NAFN;
+        return m[n];
     }
 
 

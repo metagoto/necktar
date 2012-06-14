@@ -10,7 +10,7 @@ namespace necktar
     struct fretboard
     {
 
-        fretboard(note_seq_t tuning, size_t fret_count)
+        fretboard(note_seq_t tuning, size_t fret_count = 21)
             : tuning_(tuning)
             , fret_count_(fret_count)
         { }
