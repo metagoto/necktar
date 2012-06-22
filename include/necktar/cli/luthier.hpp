@@ -38,8 +38,15 @@ namespace necktar { namespace cli
                 {
                     if (i > fc)
                         break;
-                    rlutil::locate(i*fret_gap_+x, y);
-                    os_ << "•";
+                    if (i % 12 == 0) {
+                        rlutil::locate(i*fret_gap_+x, y-string_gap_);
+                        os_ << "•";
+                        rlutil::locate(i*fret_gap_+x, y+string_gap_);
+                        os_ << "•";
+                    } else {
+                        rlutil::locate(i*fret_gap_+x, y);
+                        os_ << "•";
+                    }
                 }
             }
             {   // strings
