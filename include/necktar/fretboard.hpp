@@ -11,7 +11,7 @@ namespace necktar
     {
 
         fretboard(note_seq_t tuning, size_t fret_count = 21)
-            : tuning_(tuning)
+            : tuning_(std::move(tuning))
             , fret_count_(fret_count)
         { }
 
@@ -22,7 +22,7 @@ namespace necktar
 
         void tuning(note_seq_t tuning)
         {
-            tuning_ = tuning;
+            tuning_ = std::move(tuning);
         }
 
         size_t string_count() const
