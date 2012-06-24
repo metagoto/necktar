@@ -18,6 +18,7 @@ namespace necktar
     typedef std::vector<interval_char_t> interval_char_seq_t;
 
     typedef semitone_seq_t tone_vec_t;
+    typedef std::vector<semitone_seq_t> semitone_seq_seq_t;
 
     typedef unsigned int size_t;
     typedef unsigned int pos_t;
@@ -30,6 +31,15 @@ namespace necktar
     typedef std::tuple<pos_t, note, semitone_t> pack_t;
     typedef std::vector<pack_t> pack_seq_t;
     typedef std::vector<pack_seq_t> pack_seq_seq_t;
+
+    ///typedef std::tuple<pos_t, pos_t> string_pos_t;
+    struct string_pos_t : std::tuple<pos_t, pos_t>
+    {
+        string_pos_t(pos_t a, pos_t b)
+            : std::tuple<pos_t, pos_t>(a, b)
+        { }
+    };
+    typedef std::vector<string_pos_t> string_pos_seq_t;
 
     enum note : note_base_t
     {
@@ -177,6 +187,9 @@ namespace necktar
             return NAFN;
         return m[n];
     }
+
+
+    static const note_seq_t stdtuning = {note::E,note::A,note::D,note::G,note::B,note::E};
 
 
     namespace detail

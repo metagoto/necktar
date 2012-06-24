@@ -12,8 +12,7 @@ namespace necktar
         tone_vec_t t(12, 0);
         for (auto v : s) {
             v %= 12;
-            if (v < 0)
-                v += 12;
+            if (v < 0) v += 12;
             t[v] = 1;
         }
         return t;
@@ -37,9 +36,9 @@ namespace necktar
         semitone_seq_t t;
         t.reserve(s.size());
         for (auto const& v : s) {
-            t.push_back( v > detail::INTVDELTA-12
-                         ? v - detail::INTVDELTA
-                         : detail::interval[v]%12 );
+            t.push_back(v > detail::INTVDELTA-12
+                        ? v - detail::INTVDELTA
+                        : detail::interval[v]%12);
         }
         return t;
     }

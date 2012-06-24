@@ -9,6 +9,18 @@ using std::cout;
 using std::endl;
 
 
+void print(semitone_seq_seq_t const& s)
+{
+    for (auto const& v : s)
+    {
+        std::for_each(v.begin(), v.end(), [](semitone_t i){
+            cout << interval_str(i) << ", ";
+        });
+        cout << "\n";
+    }
+}
+///
+
 TEST(case_1, test_1)
 {
 
@@ -92,4 +104,14 @@ TEST(case_1, test_4)
 
 //    cli::display2(b1, distribute(b1, l1));
 
+}
+
+
+TEST(case_1, test_5)
+{
+    fretboard b1;
+
+    auto const& cs = which_chords(b1, {{0,0},{1,2},{2,2},{3,1}});
+
+    print(cs);
 }
