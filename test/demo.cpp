@@ -111,7 +111,9 @@ TEST(case_1, test_5)
 {
     fretboard b1;
 
-    auto const& cs = which_chords(b1, {{0,0},{1,2},{2,2},{3,1}});
+    print(which_chords(b1, {{0,0},{1,2},{2,2},{3,1}})); // Emaj
+    print(which_chords(b1, {{0,0},{1,2},{2,0},{3,1}})); // E7
 
-    print(cs);
+    print(which_chords(b1, {{0,4},{1,2},{2,2},{3,1}})); // E 1st inversion
+
 }
